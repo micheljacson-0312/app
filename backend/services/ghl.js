@@ -51,6 +51,24 @@ async function updateLead(id, payload) {
   return resp.data
 }
 
+async function getOpportunities(query = {}) {
+  const params = {}
+  if (query.page) params.page = query.page
+  if (query.limit) params.limit = query.limit
+
+  const resp = await client.get('/opportunities', { params })
+  return resp.data
+}
+
+async function createOpportunity(payload) {
+  // payload should include: name, value, pipelineId, contactId, stage
+  const body = {
+    ...payload
+  }
+  const resp = await client.post('/opportunities', body)
+  return resp.data
+}
+
 module.exports = {
   getLeads,
   createLead,

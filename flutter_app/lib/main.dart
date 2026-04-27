@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screens/leads_list.dart';
+import 'services/notifications.dart';
+
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  LocalNotifications.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 

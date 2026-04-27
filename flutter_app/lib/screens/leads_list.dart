@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import 'add_lead.dart';
+import 'lead_detail.dart';
+import 'opportunities_list.dart';
 
 class LeadsListScreen extends ConsumerWidget {
   const LeadsListScreen({super.key});
@@ -17,6 +19,10 @@ class LeadsListScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () => ref.read(leadsProvider.notifier).load(),
+          ),
+          IconButton(
+            icon: const Icon(Icons.work),
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const OpportunitiesListScreen())),
           )
         ],
       ),
@@ -31,6 +37,7 @@ class LeadsListScreen extends ConsumerWidget {
               return ListTile(
                 title: Text(l.name),
                 subtitle: Text('${l.email ?? ''} ${l.phone ?? ''}'),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => LeadDetailScreen(lead: l))),
               );
             },
           );
