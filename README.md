@@ -21,4 +21,5 @@ CI / Release
 - Manual release workflow (.github/workflows/release.yml) builds backend Docker image and Flutter APK and stores artifacts.
 
 Badges
-- Backend CI: https://github.com/micheljacson-0312/app/actions
+- Backend CI: ![CI](https://github.com/micheljacson-0312/app/actions/workflows/ci.yml/badge.svg)
+- Release workflow: ![Release](https://github.com/micheljacson-0312/app/actions/workflows/release.yml/badge.svg)
