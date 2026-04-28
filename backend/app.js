@@ -19,7 +19,11 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', service: 'ghl-crm-backend' })
 })
 
-const PORT = process.env.PORT || 4000
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+if (require.main === module) {
+  const PORT = process.env.PORT || 4000
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
+
+module.exports = app
