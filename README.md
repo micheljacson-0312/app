@@ -15,3 +15,10 @@ Run locally
    - cd flutter_app
    - flutter pub get
    - run on emulator. Android emulator reach backend at http://10.0.2.2:4000
+
+CI / Release
+- GitHub Actions CI is configured (.github/workflows/ci.yml) to run backend and flutter tests.
+- Manual release workflow (.github/workflows/release.yml) builds backend Docker image and Flutter APK and stores artifacts.
+
+Badges
+- Backend CI: https://github.com/micheljacson-0312/app/actions
